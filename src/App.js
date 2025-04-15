@@ -1,6 +1,9 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import MahjongPlay from "./MahjongPlay";
+import MahjongCardGenerator from "./MahjongCardGenerator";
+
+// mahjong card generator next???
 
 function App() {
   const [mahjongText, setMahjongText] = useState([]);
@@ -66,7 +69,8 @@ function App() {
     return result;
   };
 
-function mapToMahjongTilesUnicode(text) {
+  function mapToMahjongTilesUnicode(text) {
+  // need a zero for the soaps
   const mahjongTiles = {
     1: "\u{1F001}",
     2: "\u{1F002}",
@@ -103,12 +107,16 @@ function mapToMahjongTilesUnicode(text) {
     }
   }, [mahjongText]);
 
-  useEffect(() => {
-    console.log(mapToMahjongTilesUnicode("123456789FSWEND"))
-})
+//   useEffect(() => {
+//     console.log(mapToMahjongTilesUnicode("123456789FSWEND"))
+// })
 
   return (
     <div>
+      <div>
+        <MahjongPlay />
+        <MahjongCardGenerator/>
+      </div>
       {titles.map((title, index) => (
         <div key={index}>
           <h2>{title}</h2>
